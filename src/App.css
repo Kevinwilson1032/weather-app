@@ -3,60 +3,98 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  overflow: hidden;
 }
 
 .App {
-  background-color: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 320px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 350px;
   max-width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: slideIn 0.6s ease forwards;
+}
+
+.App:hover {
+  transform: scale(1.05);
 }
 
 input {
-  padding: 10px;
+  padding: 12px 15px;
   width: 80%;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
-  margin-bottom: 12px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  color: #333;
+}
+
+input:focus {
+  box-shadow: 0 0 8px #8e44ad;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #00aaff;
-  color: white;
+  margin-left: 10px;
+  padding: 12px 25px;
+  background-color: #8e44ad;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
+  font-weight: 600;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #008ecc;
+  background-color: #732d91;
+  transform: scale(1.1);
 }
 
 .weather-info {
-  margin-top: 20px;
-  animation: fadeIn 0.5s ease;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .weather-info h2 {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
 }
 
-@keyframes fadeIn {
+.weather-info p {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
